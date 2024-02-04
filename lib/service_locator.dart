@@ -5,10 +5,13 @@ import 'package:ithuta/router.gr.dart';
 final serviceLocator = GetIt.instance;
 final _globalConfiguration = GlobalConfiguration();
 
-void registerServices() {
+Future<void> registerServices() async {
   _initRouter();
+  await _loadGlobalConfiguration();
 }
 
 void _initRouter() {
   serviceLocator.registerLazySingleton<AppRouter>(() => AppRouter());
 }
+
+Future<void> _loadGlobalConfiguration() async {}
