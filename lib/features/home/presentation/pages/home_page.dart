@@ -27,8 +27,9 @@ class _HomePageState extends State<HomePage>
       appBar: AppBar(
         leading: CircleAvatar(),
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
+      body: Container(
+        // margin: const EdgeInsets.only(bottom: 16),
+        margin: const EdgeInsets.fromLTRB(16, 16, 16, 0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -47,6 +48,7 @@ class _HomePageState extends State<HomePage>
             Container(
               height: 29,
               child: TabBar(
+                physics: const NeverScrollableScrollPhysics(),
                 indicatorColor: Colors.transparent,
                 dividerColor: Colors.transparent,
                 labelPadding: EdgeInsets.zero,

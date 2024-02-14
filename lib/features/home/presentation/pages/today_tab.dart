@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ithuta/core/ui/default_bottom_sheet.dart';
 
 class TodayTab extends StatelessWidget {
   const TodayTab({super.key});
@@ -82,48 +83,53 @@ class TodayTab extends StatelessWidget {
         SliverList(
           delegate: SliverChildBuilderDelegate(
             childCount: 20,
-            (context, index) => Container(
-              height: 80,
-              padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 7),
-              margin: const EdgeInsets.only(top: 16),
-              decoration: BoxDecoration(
-                color: index > 0
-                    ? const Color(0xDF0AB990)
-                    : const Color(0xFFDFDFDF),
-                gradient: index > 0
-                    ? const LinearGradient(
-                        begin: Alignment.centerLeft,
-                        end: Alignment.centerRight,
-                        colors: [Color(0xFF1DAC70), Color(0xFF0AB98F)])
-                    : null,
-                border: Border.all(
-                  width: 1,
-                  color:
-                      index > 0 ? Colors.transparent : const Color(0xFF626262),
-                ),
-              ),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    'blood honder $index',
-                    style: TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.w500,
-                      color: index > 0 ? Colors.white : Colors.black,
-                    ),
+            (context, index) => GestureDetector(
+              onTap: () => ithutaBottomSheet(context, title: 'Lesson Name'),
+              child: Container(
+                height: 80,
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 10, vertical: 7),
+                margin: const EdgeInsets.only(top: 16),
+                decoration: BoxDecoration(
+                  color: index > 0
+                      ? const Color(0xDF0AB990)
+                      : const Color(0xFFDFDFDF),
+                  gradient: index > 0
+                      ? const LinearGradient(
+                          begin: Alignment.centerLeft,
+                          end: Alignment.centerRight,
+                          colors: [Color(0xFF1DAC70), Color(0xFF0AB98F)])
+                      : null,
+                  border: Border.all(
+                    width: 1,
+                    color: index > 0
+                        ? Colors.transparent
+                        : const Color(0xFF626262),
                   ),
-                  Text(
-                    'Lesson brief description or what mainly concerns\nThis is an example of incomplete lesson',
-                    style: TextStyle(
-                      color: index > 0
-                          ? const Color(0xFFF1F1F1)
-                          : const Color(0xFF3C3C3C),
-                      fontSize: 14,
-                      fontWeight: FontWeight.w500,
+                ),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      'blood honder $index',
+                      style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.w500,
+                        color: index > 0 ? Colors.white : Colors.black,
+                      ),
                     ),
-                  )
-                ],
+                    Text(
+                      'Lesson brief description or what mainly concerns\nThis is an example of incomplete lesson',
+                      style: TextStyle(
+                        color: index > 0
+                            ? const Color(0xFFF1F1F1)
+                            : const Color(0xFF3C3C3C),
+                        fontSize: 14,
+                        fontWeight: FontWeight.w500,
+                      ),
+                    )
+                  ],
+                ),
               ),
             ),
           ),
